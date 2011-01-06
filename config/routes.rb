@@ -5,6 +5,12 @@ Homework::Application.routes.draw do
 
   get "pages/about"
 
+  root              :to => 'pages#home'  
+  match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
+  
+
   resources :microposts
 
   resources :users
