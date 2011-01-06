@@ -16,9 +16,9 @@ Homework::Application.routes.draw do
   match '/help',    :to => 'pages#help'
   match '/signup',  :to => 'users#new'  
 
-  resources :microposts, :only => [ :create, :destroy]
+  resources :microposts, :only => [ :create, :destroy ]
   resources :users
-  resources :sessions, :only => [ :new, :create, :destroy]
+  resources :sessions, :only => [ :new, :create, :destroy ]
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

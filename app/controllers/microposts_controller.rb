@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
   # GET /microposts
   # GET /microposts.xml
-  before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authenticate, :only => [ :create, :destroy]
 
   def index
     @microposts = Micropost.all
@@ -72,6 +72,7 @@ class MicropostsController < ApplicationController
   # DELETE /microposts/1
   # DELETE /microposts/1.xml
   def destroy
+    @micropost = Micropost.find(params[:id])
     @micropost.destroy
     redirect_back_or root_path
   end
