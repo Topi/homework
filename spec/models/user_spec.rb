@@ -146,16 +146,6 @@ describe User do
 
     before(:each) do
       @user = User.create(@attr)
-    end
-
-    it "should have a microposts attribute" do
-      @user.should respond_to(:microposts)
-    end
-  end
-  describe "micropost associations" do
-
-    before(:each) do
-      @user = User.create(@attr)
       @mp1 = Factory(:micropost, :user => @user, :created_at => 1.day.ago)
       @mp2 = Factory(:micropost, :user => @user, :created_at => 1.hour.ago)
     end
@@ -209,6 +199,7 @@ describe User do
     it "should have a relationships method" do
       @user.should respond_to(:relationships)
     end
+  end
   end
   describe "relationships" do
 
@@ -264,4 +255,5 @@ describe User do
       @followed.followers.should include(@user)
     end
   end
+end
 end
